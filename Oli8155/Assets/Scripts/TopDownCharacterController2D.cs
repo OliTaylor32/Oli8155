@@ -31,6 +31,7 @@ public class TopDownCharacterController2D : MonoBehaviour {
         if (distanceTravelled > stamina)
         {
             selected = false;
+
         }
 
         if (selected == true)
