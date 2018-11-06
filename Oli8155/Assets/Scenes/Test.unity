@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e501268c57dcb5c4f81c466c66abb9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothing: 7
+  smoothing: 20
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
