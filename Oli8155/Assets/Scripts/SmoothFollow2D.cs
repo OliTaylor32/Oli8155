@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmoothFollow2D : MonoBehaviour {
 
-    public Transform target;
+    public static Transform target;
     public float smoothing = 5.0f;
 
 	// Use this for initialization
@@ -17,4 +17,10 @@ public class SmoothFollow2D : MonoBehaviour {
         Vector3 newPos = new Vector3(target.position.x, target.position.y, target.position.z);
         transform.position = Vector3.Lerp(transform.position, newPos, (smoothing * 0.001f));
 	}
+
+    private void Follow(string newTarget)
+    {
+        GameObject nextTarget = GameObject.Find(newTarget);
+        target = nextTarget.transform;
+    }
 }
