@@ -513,4 +513,4 @@ MonoBehaviour:
   speed: 5
   stamina: 10
   distanceTravelled: 0
-  isAttacking: 0
+  canAttack: no
