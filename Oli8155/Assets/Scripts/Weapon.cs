@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour {
 
     private void Fire()
     {
-        if (canFire = true)
+        if (canFire == true)
         {
             isFiring = true;
             Instantiate(BulletPrefab, bulletSpawn.position, bulletSpawn.rotation);

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class eSoilder1AI : MonoBehaviour {
-    public static string defence = "eSoilder1"; 
+    private static string defence = "eSoilder1";
+    private bool alive = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,8 +15,22 @@ public class eSoilder1AI : MonoBehaviour {
 		
 	}
     
-    private static void Attacked(int damage)
+    public static void Attacked(int damage)
     {
+       print("Message from bullet Recieved");
        GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
+    }
+
+    private void OnMouseDown()
+    {
+        print("clicked");
+        GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
+    }
+
+    public bool DamageTaken()
+    {
+        print("eSoilder1 Killed");
+        alive = false;
+        return alive;
     }
 }

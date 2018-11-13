@@ -1,14 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oli8155", "Oli8155.csproj", "{D0DF5C03-960F-8D09-3585-16B71639DAC1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oli8155.Editor", "Oli8155.Editor.csproj", "{BD5DD2E5-7DEB-151E-2271-B9563BFC2E52}"
-=======
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oli8155", "Assembly-CSharp.csproj", "{FF7BD1E1-4853-8493-6B6E-81250CD8EDFB}"
->>>>>>> f79f43f07e9ae720c4adc883d03477e475ed5a36
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oli8155.Editor", "Oli8155.Editor.csproj", "{BD5DD2E5-7DEB-151E-2271-B9563BFC2E52}"
 EndProject
@@ -18,7 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< HEAD
 		{D0DF5C03-960F-8D09-3585-16B71639DAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D0DF5C03-960F-8D09-3585-16B71639DAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0DF5C03-960F-8D09-3585-16B71639DAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,12 +25,6 @@ Global
 		{BD5DD2E5-7DEB-151E-2271-B9563BFC2E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD5DD2E5-7DEB-151E-2271-B9563BFC2E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD5DD2E5-7DEB-151E-2271-B9563BFC2E52}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{FF7BD1E1-4853-8493-6B6E-81250CD8EDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF7BD1E1-4853-8493-6B6E-81250CD8EDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF7BD1E1-4853-8493-6B6E-81250CD8EDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF7BD1E1-4853-8493-6B6E-81250CD8EDFB}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> f79f43f07e9ae720c4adc883d03477e475ed5a36
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
