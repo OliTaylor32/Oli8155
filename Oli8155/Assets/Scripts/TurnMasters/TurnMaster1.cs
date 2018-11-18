@@ -39,7 +39,7 @@ public class TurnMaster1 : MonoBehaviour {
                     switch (defence)
                     {
                         case "eSoilder1":
-                            //Play Animation
+                            GameObject.Find("Main Camera").SendMessage("pSniperVeSoilder1", SendMessageOptions.DontRequireReceiver);
                             //Take away health
                             Debug.Log("pSniper v eSoilder1");
                             GameObject.Find("eSoilder1").SendMessage("DamageTaken");
