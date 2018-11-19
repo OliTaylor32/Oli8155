@@ -34,6 +34,7 @@ public class SmoothFollow2D : MonoBehaviour {
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
+        Application.LoadLevel("Stage1b");
         Destroy(vp);
     }
 }
