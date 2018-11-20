@@ -16,6 +16,6 @@ public class Click2Start : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        Application.LoadLevel("OpeningCutscene");
+        Application.LoadLevel("Main Menu");
     }
 }
