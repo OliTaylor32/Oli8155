@@ -9,7 +9,9 @@ public class SmoothFollow2D : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
         GameObject camera = GameObject.Find("Main Camera");
+        videoPlayer.Prepare();
     }
 	
 	// Update is called once per frame
