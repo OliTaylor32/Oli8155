@@ -8,8 +8,10 @@ public class eSoilder2AI : MonoBehaviour {
     public int health = 3; 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+        GameObject camera = GameObject.Find("Main Camera");
+        videoPlayer.Prepare();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +33,27 @@ public class eSoilder2AI : MonoBehaviour {
             alive = false;
         }
         return alive;
+    }
+
+    private IEnumerator MyTurn()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        if (alive == true)
+        {
+            print("eSoilder2 Attacks pGunner");
+            defence = "pGunner";
+            GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
+            defence = "eSoilder2";
+            var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+            videoPlayer.Play();
+            videoPlayer.loopPointReached += EndReached;
+        }
+
+    }
+
+    private void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        Destroy(vp);
     }
 
 }
