@@ -1,22 +1,22 @@
 # Oli8155
 
-Student name 
+Student name: 
 Oliver Taylor
  
-Student number 
+Student number:
 10613973
  
-Course The name of the course you are on 
+Course: 
 Computing & Games Development
  
-Module 
+Module: 
 AINT152 Games Workshop 
  
-Assignment title 
+Assignment title:
 Unity 2D Zombie Shooter 
  
-Instructions for usage 
+Instructions for usage:
 Currently no avaliable build. 
  
-References 
+References: 
 None, all assets used in the project are of my creation. 
