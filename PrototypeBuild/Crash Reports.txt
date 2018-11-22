@@ -1,0 +1,5 @@
+There are multiple ways in which to soft-lock the current build. 
+These are: 
+
+-Passing up the first turn without attacking the enemy
+-After Completing your secound turn, and after the enemies attack, the game will always result in a soft-lock as further content hasn't been developed. 

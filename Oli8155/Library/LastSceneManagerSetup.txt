@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Encyclopedia.unity
+- path: Assets/Scenes/OpeningCutscene.unity
   isLoaded: 1
   isActive: 1
