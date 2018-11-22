@@ -16,7 +16,7 @@ Assignment title:
 Unity 2D Zombie Shooter 
  
 Instructions for usage:
-Currently no avaliable build. 
+Run the executable, all known issues with the build are documented in the "Crash Reports" document in the prototype build folder. 
  
 References: 
 None, all assets used in the project are of my creation. 
