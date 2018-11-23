@@ -36,7 +36,7 @@ public class Camera1b : MonoBehaviour {
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        Destroy(vp);
+        vp.Stop();
     }
 }
 

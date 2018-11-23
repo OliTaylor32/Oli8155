@@ -53,7 +53,7 @@ public class eSoilder2AI : MonoBehaviour {
 
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        Destroy(vp);
+        vp.Stop();
     }
 
 }
