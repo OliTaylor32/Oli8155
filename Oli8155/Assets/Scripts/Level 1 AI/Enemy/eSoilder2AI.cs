@@ -54,6 +54,7 @@ public class eSoilder2AI : MonoBehaviour {
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         vp.Stop();
+        GameObject.Find("TurnMaster").SendMessage("ESoldier2Done");
     }
 
 }

@@ -25,7 +25,18 @@ public class TurnMaster1b : MonoBehaviour {
         GameObject.Find("eSoilder2").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
         newTarget = "eSoilder2";
         GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
         return newTarget;
+        
+    }
+    private string ESoldier2Done()
+    {
+        GameObject.Find("eSoilder2").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "eSoilder2";
+        GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
+        return newTarget;
+
     }
 
     public bool Battle(string defence)
