@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 1576022058}
   - component: {fileID: 1576022057}
   - component: {fileID: 1576022059}
-  - component: {fileID: 1576022056}
   m_Layer: 0
   m_Name: Click to Start
   m_TagString: Untagged
@@ -766,20 +765,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1576022056
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1576022053}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b4ee248d34a9efb40be20ba5a918a210, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1576022057
 Animator:
   serializedVersion: 3

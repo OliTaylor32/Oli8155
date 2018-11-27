@@ -6,6 +6,7 @@ public class TurnMaster1b : MonoBehaviour {
     public string attack;
     public string newTarget;
     public bool canAttack = true;
+    public int power = 1;
     // Use this for initialization
     string Start () {
         GameObject.Find("pGunner").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
@@ -31,8 +32,8 @@ public class TurnMaster1b : MonoBehaviour {
     }
     private string ESoldier2Done()
     {
-        GameObject.Find("eSoilder2").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
-        newTarget = "eSoilder2";
+        GameObject.Find("pSoldier1").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "pSoldier1";
         GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
         canAttack = false;
         return newTarget;
@@ -47,17 +48,23 @@ public class TurnMaster1b : MonoBehaviour {
             {
                  case "pGunner":
                     PGunnerDone();
+                    power = 2; 
                     switch (defence)
                     {
                         case "eSoilder2":
                             GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
                             Debug.Log("pSniper v eSoilder2");
-                            GameObject.Find("eSoilder2").SendMessage("DamageTaken");
+                            GameObject.Find("eSoilder2").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
                             break;
                     }
 
 
                 break;
+
+                case "eSoilder2":
+                    power = 2;
+                    GameObject.Find("pGunner").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
+                    break;
             }
             canAttack = false;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class eSoilder2AI : MonoBehaviour {
     private static string defence = "eSoilder2";
     private bool alive = true;
-    public int health = 3; 
+    public int health = 4; 
 	// Use this for initialization
 	void Start () {
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
@@ -24,9 +24,9 @@ public class eSoilder2AI : MonoBehaviour {
         GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
     }
 
-    public bool DamageTaken()
+    public bool DamageTaken(int power)
     {
-        health = health - 1; 
+        health = health - power; 
         print("eSoilder2 Damaged");
         if (health == 0)
         {
@@ -54,7 +54,7 @@ public class eSoilder2AI : MonoBehaviour {
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         vp.Stop();
-        GameObject.Find("TurnMaster").SendMessage("ESoldier2Done");
+        GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
     }
 
 }
