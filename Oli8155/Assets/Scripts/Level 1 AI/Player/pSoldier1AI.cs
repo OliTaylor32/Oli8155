@@ -6,9 +6,11 @@ public class pSoldier1AI : MonoBehaviour {
     private static string defence = "pSoilder1";
     private bool alive = true;
     public int health = 2;
-    private Animation anim;
+    protected Animator animator;
     // Use this for initialization
     void Start () {
+        animator = GetComponent<Animator>();
+        animator.StopPlayback();
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
         GameObject camera = GameObject.Find("Main Camera");
         videoPlayer.Prepare();
@@ -28,16 +30,16 @@ public class pSoldier1AI : MonoBehaviour {
 
     private IEnumerator MyTurn()
     {
-        anim = gameObject.GetComponent<Animation>();
+        animator = GetComponent<Animator>();
         yield return new WaitForSecondsRealtime(2);
-        anim.Play("pSoldier1");
-        print("pSoldier1 Attacks eSoldier2");
-        defence = "eSoldier2";
-        GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
-        defence = "pSoldier1";
-        //var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-        //videoPlayer.Play();
-        //videoPlayer.loopPointReached += EndReached;
+        animator.Play("pSoldier1");
+        //print("pSoldier1 Attacks eSoldier2");
+        //defence = "eSoldier2";
+        //GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
+        //defence = "pSoldier1";
+        ////var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+        ////videoPlayer.Play();
+        ////videoPlayer.loopPointReached += EndReached;
 
 
     }
