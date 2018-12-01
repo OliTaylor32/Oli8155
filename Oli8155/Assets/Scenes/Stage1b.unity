@@ -3046,7 +3046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da257c0ca5e1e7c40bf6c2e2b93c9064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 4
 --- !u!328 &1415525390
 VideoPlayer:
   m_ObjectHideFlags: 0

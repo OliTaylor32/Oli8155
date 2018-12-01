@@ -30,9 +30,17 @@ public class pSoldier1AI : MonoBehaviour {
 
     private IEnumerator MyTurn()
     {
-        animator = GetComponent<Animator>();
-        yield return new WaitForSecondsRealtime(2);
-        animator.Play("pSoldier1");
+        if (alive == true)
+        {
+            animator = GetComponent<Animator>();
+            yield return new WaitForSecondsRealtime(2);
+            animator.Play("pSoldier1");
+            //Attack animation
+            print("pSoldier1 Attacks eSoldier2");
+            yield return new WaitForSecondsRealtime(10);
+            GameObject.Find("eSoilder2").SendMessage("DamageTaken", 1, SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("TurnMaster").SendMessage("PSoldier1Done", SendMessageOptions.DontRequireReceiver);
+        }
         //print("pSoldier1 Attacks eSoldier2");
         //defence = "eSoldier2";
         //GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
