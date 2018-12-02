@@ -48,6 +48,15 @@ public class TurnMaster1b : MonoBehaviour {
         return newTarget;
 
     }
+    private string ESoldier3Done()
+    {
+        GameObject.Find("eSoldier4").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "eSoldier4";
+        GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
+        return newTarget;
+
+    }
 
     public bool Battle(string defence)
     {
