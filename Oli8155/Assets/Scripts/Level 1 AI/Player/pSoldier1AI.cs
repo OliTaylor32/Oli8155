@@ -24,6 +24,7 @@ public class pSoldier1AI : MonoBehaviour {
     public bool DamageTaken()
     { 
         print("pSoilder1 Damaged");
+        health = 0;
         alive = false;
         return alive;
     }
