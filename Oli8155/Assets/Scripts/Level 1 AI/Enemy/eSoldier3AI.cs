@@ -18,7 +18,11 @@ public class eSoldier3AI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+        if (alive == false)
+        {
+            //Death Animation
+            Object.Destroy(this);
+        }
 	}
 
     public bool DamageTaken()

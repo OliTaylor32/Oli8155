@@ -50,8 +50,28 @@ public class TurnMaster1b : MonoBehaviour {
     }
     private string ESoldier3Done()
     {
+        GameObject.Find("eGunner1").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "eGunner1";
+        GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
+        return newTarget;
+
+    }
+
+    private string EGunner1Done()
+    {
         GameObject.Find("eSoldier4").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
         newTarget = "eSoldier4";
+        GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
+        return newTarget;
+
+    }
+
+    private string ESoldier4Done()
+    {
+        GameObject.Find("pGunner").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "pGunner";
         GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
         canAttack = false;
         return newTarget;
@@ -66,7 +86,7 @@ public class TurnMaster1b : MonoBehaviour {
             {
                  case "pGunner":
                     PGunnerDone();
-                    power = 2; 
+                    power = 4; 
                     switch (defence)
                     {
                         case "eSoilder2":

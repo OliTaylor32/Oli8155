@@ -26,7 +26,7 @@ public class eSoilder2AI : MonoBehaviour {
 
     public bool DamageTaken(int power)
     {
-        health = health - power; 
+        health = health - (power/2); 
         print("eSoilder2 Damaged");
         if (health == 0)
         {

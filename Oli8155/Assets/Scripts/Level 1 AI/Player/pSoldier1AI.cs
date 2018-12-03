@@ -36,7 +36,7 @@ public class pSoldier1AI : MonoBehaviour {
             animator = GetComponent<Animator>();
             yield return new WaitForSecondsRealtime(2);
             animator.Play("pSoldier1");
-            //Attack animation
+            //Attack Animation
             print("pSoldier1 Attacks eSoldier2");
             yield return new WaitForSecondsRealtime(10);
             GameObject.Find("eSoilder2").SendMessage("DamageTaken", 1, SendMessageOptions.DontRequireReceiver);
