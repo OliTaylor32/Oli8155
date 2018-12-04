@@ -20,8 +20,7 @@ public class eSoldier3AI : MonoBehaviour {
     void Update () {
         if (alive == false)
         {
-            //Death Animation
-            Object.Destroy(this);
+           
         }
 	}
 
@@ -29,6 +28,8 @@ public class eSoldier3AI : MonoBehaviour {
     { 
         print("eSoilder3 Damaged");
         alive = false;
+        animator = GetComponent<Animator>();
+        animator.Play("Defeated");
         return alive;
     }
 

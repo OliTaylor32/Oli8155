@@ -5,17 +5,18 @@ using UnityEngine;
 public class eSoilder2AI : MonoBehaviour {
     private static string defence = "eSoilder2";
     private bool alive = true;
-    public int health = 4; 
-	// Use this for initialization
-	void Start () {
+    public int health = 4;
+    protected Animator animator;
+    // Use this for initialization
+    void Start () {
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
         GameObject camera = GameObject.Find("Main Camera");
         videoPlayer.Prepare();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+    // Update is called once per frame
+     void Update() {
+
 	}
     
     private void OnMouseDown()
@@ -30,8 +31,14 @@ public class eSoilder2AI : MonoBehaviour {
         print("eSoilder2 Damaged");
         if (health == 0)
         {
+            print("Health = 0");
             alive = false;
+            print("Defeated Anim playing");
+            animator = GetComponent<Animator>();
+            animator.Play("Defeated");
+
         }
+
         return alive;
     }
 
@@ -48,6 +55,11 @@ public class eSoilder2AI : MonoBehaviour {
             videoPlayer.Play();
             videoPlayer.loopPointReached += EndReached;
         }
+        else
+        {
+            yield return new WaitForSecondsRealtime(2);
+            GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
+        }
 
     }
 
@@ -56,5 +68,6 @@ public class eSoilder2AI : MonoBehaviour {
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
     }
+    
 
 }

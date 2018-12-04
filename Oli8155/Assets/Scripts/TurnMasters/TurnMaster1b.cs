@@ -70,10 +70,20 @@ public class TurnMaster1b : MonoBehaviour {
 
     private string ESoldier4Done()
     {
+        GameObject.Find("pSoldier2").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
+        newTarget = "pSoldier2";
+        GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
+        canAttack = false;
+        return newTarget;
+
+    }
+
+    private string PSoldier2Done()
+    {
         GameObject.Find("pGunner").SendMessage("MyTurn", SendMessageOptions.DontRequireReceiver);
         newTarget = "pGunner";
         GameObject.Find("Main Camera").SendMessage("Follow", newTarget, SendMessageOptions.DontRequireReceiver);
-        canAttack = false;
+        canAttack = true;
         return newTarget;
 
     }

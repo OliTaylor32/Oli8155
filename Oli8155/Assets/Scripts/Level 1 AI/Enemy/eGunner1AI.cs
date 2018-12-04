@@ -7,6 +7,8 @@ public class eGunner1AI : MonoBehaviour {
     private bool alive = true;
     public int health = 4;
     public GameObject target;
+    protected Animator animator;
+
     // Use this for initialization
     void Start () {
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
@@ -32,6 +34,8 @@ public class eGunner1AI : MonoBehaviour {
         if (health == 0)
         {
             alive = false;
+            animator = GetComponent<Animator>();
+            animator.Play("Defeated");
         }
         return alive;
     }
