@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class eSoldier3AI : MonoBehaviour {
-    private static string defence = "eSoilder3";
+    private static string defence = "eSoldier3";
     private bool alive = true;
     public int health = 2;
     protected Animator animator;
@@ -44,6 +44,11 @@ public class eSoldier3AI : MonoBehaviour {
             print("eSoldier3 Attacks pSoldier1");
             yield return new WaitForSecondsRealtime(8);
             GameObject.Find("pSoldier1").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
+        }
+        else
+        {
+            yield return new WaitForSecondsRealtime(2);
             GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
         }
         //print("pSoldier1 Attacks eSoldier2");

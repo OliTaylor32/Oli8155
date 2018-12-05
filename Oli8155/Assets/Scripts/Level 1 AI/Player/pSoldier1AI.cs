@@ -26,6 +26,8 @@ public class pSoldier1AI : MonoBehaviour {
         print("pSoilder1 Damaged");
         health = 0;
         alive = false;
+        animator = GetComponent<Animator>();
+        animator.Play("Defeated");
         return alive;
     }
 
@@ -39,9 +41,15 @@ public class pSoldier1AI : MonoBehaviour {
             //Attack Animation
             print("pSoldier1 Attacks eSoldier2");
             yield return new WaitForSecondsRealtime(10);
-            GameObject.Find("eSoilder2").SendMessage("DamageTaken", 1, SendMessageOptions.DontRequireReceiver);
+            GameObject.Find("eSoilder2").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
             GameObject.Find("TurnMaster").SendMessage("PSoldier1Done", SendMessageOptions.DontRequireReceiver);
         }
+        else
+        {
+            yield return new WaitForSecondsRealtime(1);
+            GameObject.Find("TurnMaster").SendMessage("PSoldier1Done", SendMessageOptions.DontRequireReceiver);
+        }
+        
         //print("pSoldier1 Attacks eSoldier2");
         //defence = "eSoldier2";
         //GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);

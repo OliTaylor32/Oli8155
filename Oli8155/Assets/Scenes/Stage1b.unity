@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 382864565}
   - component: {fileID: 382864564}
   - component: {fileID: 382864566}
+  - component: {fileID: 382864567}
   m_Layer: 0
   m_Name: pSoldier2
   m_TagString: Untagged
@@ -1121,6 +1122,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &382864567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 382864563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007458f2c92a1de4eb31b8fc24dc8647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  turn: 1
 --- !u!1 &423090620
 GameObject:
   m_ObjectHideFlags: 0

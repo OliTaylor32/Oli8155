@@ -101,9 +101,28 @@ public class TurnMaster1b : MonoBehaviour {
                     {
                         case "eSoilder2":
                             GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
-                            Debug.Log("pSniper v eSoilder2");
+                            Debug.Log("pGunner v eSoilder2");
                             GameObject.Find("eSoilder2").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
                             break;
+
+                        case "eSoldier3":
+                            GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
+                            Debug.Log("pGunner v eSoilder3");
+                            GameObject.Find("eSoldierer3").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
+                            break;
+
+                        case "eSoldier4":
+                            GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
+                            Debug.Log("pGunner v eSoldier4");
+                            GameObject.Find("eSoldier4").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
+                            break;
+
+                        case "eGunner1":
+                            GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
+                            Debug.Log("pGunner v eGunner1");
+                            GameObject.Find("eGunner1").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
+                            break;
+
                     }
 
 

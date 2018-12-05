@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pSoldier2AI : MonoBehaviour {
-    private static string defence = "pSoilder1";
+    private static string defence = "pSoilder2";
     private bool alive = true;
     public int health = 2;
     protected Animator animator;
@@ -14,7 +14,7 @@ public class pSoldier2AI : MonoBehaviour {
         animator.StopPlayback();
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
         GameObject camera = GameObject.Find("Main Camera");
-        videoPlayer.Prepare();
+        //videoPlayer.Prepare();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class pSoldier2AI : MonoBehaviour {
 
     public bool DamageTaken()
     { 
-        print("pSoilder1 Damaged");
+        print("pSoilder2 Damaged");
         health = 0;
         alive = false;
         return alive;
@@ -38,11 +38,11 @@ public class pSoldier2AI : MonoBehaviour {
             {
                 animator = GetComponent<Animator>();
                 yield return new WaitForSecondsRealtime(2);
-                animator.Play("pSoldier1");
+                animator.Play("pSoldier2(1)");
                 //Attack Animation
-                print("pSoldier1 Attacks eSoldier2");
+                print("pSoldier2 Attacks eSoldier2");
                 yield return new WaitForSecondsRealtime(10);
-                GameObject.Find("eSoilder3").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+                GameObject.Find("eSoilder2").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
                 GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
                 turn = 2;
             }
@@ -50,14 +50,18 @@ public class pSoldier2AI : MonoBehaviour {
             {
                 animator = GetComponent<Animator>();
                 yield return new WaitForSecondsRealtime(2);
-                animator.Play("pSoldier1");
+                animator.Play("pSoldier2(2)");
                 //Attack Animation
-                print("pSoldier1 Attacks eSoldier2");
+                print("pSoldier2 Attacks eGunner");
                 yield return new WaitForSecondsRealtime(10);
                 GameObject.Find("eGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
                 GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
             }
-            
+        }
+        else
+        {
+            yield return new WaitForSecondsRealtime(2);
+            GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
         }
         //print("pSoldier1 Attacks eSoldier2");
         //defence = "eSoldier2";
