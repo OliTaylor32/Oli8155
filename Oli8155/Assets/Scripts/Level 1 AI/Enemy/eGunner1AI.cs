@@ -57,7 +57,6 @@ public class eGunner1AI : MonoBehaviour {
                 videoPlayer.Play();
                 videoPlayer.loopPointReached += EndReached;
             }
-            GameObject.Find("TurnMaster").SendMessage("EGunner1Done", SendMessageOptions.DontRequireReceiver);
 
         }
         else
