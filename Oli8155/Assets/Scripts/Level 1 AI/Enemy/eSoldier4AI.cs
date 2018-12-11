@@ -62,7 +62,7 @@ public class eSoldier4AI : MonoBehaviour {
         }
         else
         {
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(1);
             GameObject.Find("TurnMaster").SendMessage("ESoldier4Done", SendMessageOptions.DontRequireReceiver);
         }
 

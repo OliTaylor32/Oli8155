@@ -44,40 +44,35 @@ public class pSoldier2AI : MonoBehaviour {
                 yield return new WaitForSecondsRealtime(10);
                 GameObject.Find("eSoilder2").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
                 GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
-                turn = 2;
+                
             }
-            else
+            else if (turn == 2)
             {
                 animator = GetComponent<Animator>();
                 yield return new WaitForSecondsRealtime(2);
                 animator.Play("pSoldier2(2)");
                 //Attack Animation
                 print("pSoldier2 Attacks eGunner");
-                yield return new WaitForSecondsRealtime(10);
-                GameObject.Find("eGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+                yield return new WaitForSecondsRealtime(12);
+                GameObject.Find("eGunner1").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
                 GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
             }
+            else if (turn >= 3)
+            {
+                //Attack Animation
+                print("pSoldier2 Attacks eGunner");
+                yield return new WaitForSecondsRealtime(4);
+                GameObject.Find("eGunner1").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+                GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
+            }
+            turn = turn + 1;
         }
         else
         {
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(1);
             GameObject.Find("TurnMaster").SendMessage("PSoldier2Done", SendMessageOptions.DontRequireReceiver);
         }
-        //print("pSoldier1 Attacks eSoldier2");
-        //defence = "eSoldier2";
-        //GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
-        //defence = "pSoldier1";
-        ////var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-        ////videoPlayer.Play();
-        ////videoPlayer.loopPointReached += EndReached;
 
 
     }
-
-    private void EndReached(UnityEngine.Video.VideoPlayer vp)
-    {
-        vp.Stop();
-        GameObject.Find("TurnMaster").SendMessage("PSoilder2Done", SendMessageOptions.DontRequireReceiver);
-    }
-
 }

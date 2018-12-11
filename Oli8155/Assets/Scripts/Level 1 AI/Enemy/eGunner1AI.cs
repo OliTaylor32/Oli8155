@@ -42,12 +42,12 @@ public class eGunner1AI : MonoBehaviour {
 
     private IEnumerator MyTurn()
     {
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(2);
         if (alive == true)
         
         {
             GameObject target = GameObject.Find("pGunner");
-            if (Vector3.Distance(target.transform.position, transform.position) <= 5)
+            if (Vector3.Distance(target.transform.position, target.transform.position) <= 5)
             {
                 print("eGunner1 Attacks pGunner1 ");
                 defence = "pGunner";
@@ -62,7 +62,7 @@ public class eGunner1AI : MonoBehaviour {
         }
         else
         {
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(1);
             GameObject.Find("TurnMaster").SendMessage("EGunner1Done", SendMessageOptions.DontRequireReceiver);
         }
 
@@ -71,7 +71,7 @@ public class eGunner1AI : MonoBehaviour {
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         vp.Stop();
-        GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("TurnMaster").SendMessage("EGunner1Done", SendMessageOptions.DontRequireReceiver);
     }
 
 }

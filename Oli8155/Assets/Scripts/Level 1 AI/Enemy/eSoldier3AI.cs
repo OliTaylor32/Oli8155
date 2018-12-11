@@ -18,11 +18,14 @@ public class eSoldier3AI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (alive == false)
-        {
-           
-        }
+
 	}
+
+    private void OnMouseDown()
+    {
+        print("clicked");
+        GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
+    }
 
     public bool DamageTaken()
     { 
@@ -48,7 +51,7 @@ public class eSoldier3AI : MonoBehaviour {
         }
         else
         {
-            yield return new WaitForSecondsRealtime(2);
+            yield return new WaitForSecondsRealtime(1);
             GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
         }
         //print("pSoldier1 Attacks eSoldier2");

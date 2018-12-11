@@ -108,7 +108,7 @@ public class TurnMaster1b : MonoBehaviour {
                         case "eSoldier3":
                             GameObject.Find("Main Camera").SendMessage("pGunnerVeSoilder2", SendMessageOptions.DontRequireReceiver);
                             Debug.Log("pGunner v eSoilder3");
-                            GameObject.Find("eSoldierer3").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
+                            GameObject.Find("eSoldier3").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
                             break;
 
                         case "eSoldier4":
