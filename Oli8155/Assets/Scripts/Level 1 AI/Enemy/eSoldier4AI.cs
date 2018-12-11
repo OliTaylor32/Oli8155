@@ -36,6 +36,10 @@ public class eSoldier4AI : MonoBehaviour {
             alive = false;
             animator = GetComponent<Animator>();
             animator.Play("Defeated");
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
         }
         return alive;
     }
@@ -47,7 +51,7 @@ public class eSoldier4AI : MonoBehaviour {
         
         {
             GameObject target = GameObject.Find("pGunner");
-            if (Vector3.Distance(target.transform.position, transform.position) <= 5)
+            if (Vector3.Distance(target.transform.position, this.transform.position) <= 4)
             {
                 print("eSoldier4 Attacks pGunner1 ");
                 defence = "pGunner";
@@ -57,7 +61,11 @@ public class eSoldier4AI : MonoBehaviour {
                 videoPlayer.Play();
                 videoPlayer.loopPointReached += EndReached;
             }
-            GameObject.Find("TurnMaster").SendMessage("ESoldier4Done", SendMessageOptions.DontRequireReceiver);
+            else
+            {
+                GameObject.Find("TurnMaster").SendMessage("ESoldier4Done", SendMessageOptions.DontRequireReceiver);
+            }
+            
 
         }
         else

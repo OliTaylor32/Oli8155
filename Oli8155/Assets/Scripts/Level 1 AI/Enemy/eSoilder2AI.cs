@@ -36,6 +36,10 @@ public class eSoilder2AI : MonoBehaviour {
             print("Defeated Anim playing");
             animator = GetComponent<Animator>();
             animator.Play("Defeated");
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
 
         }
 

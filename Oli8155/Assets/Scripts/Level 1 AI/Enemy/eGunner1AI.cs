@@ -36,6 +36,10 @@ public class eGunner1AI : MonoBehaviour {
             alive = false;
             animator = GetComponent<Animator>();
             animator.Play("Defeated");
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
         }
         return alive;
     }
@@ -47,7 +51,7 @@ public class eGunner1AI : MonoBehaviour {
         
         {
             GameObject target = GameObject.Find("pGunner");
-            if (Vector3.Distance(target.transform.position, target.transform.position) <= 5)
+            if (Vector3.Distance(target.transform.position, this.transform.position) <= 4)
             {
                 print("eGunner1 Attacks pGunner1 ");
                 defence = "pGunner";
@@ -56,6 +60,10 @@ public class eGunner1AI : MonoBehaviour {
                 var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
                 videoPlayer.Play();
                 videoPlayer.loopPointReached += EndReached;
+            }
+            else
+            {
+                GameObject.Find("TurnMaster").SendMessage("EGunner1Done", SendMessageOptions.DontRequireReceiver);
             }
 
         }

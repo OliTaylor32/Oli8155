@@ -33,6 +33,10 @@ public class eSoldier3AI : MonoBehaviour {
         alive = false;
         animator = GetComponent<Animator>();
         animator.Play("Defeated");
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         return alive;
     }
 
