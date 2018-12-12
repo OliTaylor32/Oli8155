@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class pGunnerMove : MonoBehaviour {
 
@@ -16,6 +18,8 @@ public class pGunnerMove : MonoBehaviour {
     public bool alive = true;
     public int health = 10;
     public bool sandBag = false;
+    public Slider PlayerHealth;
+    public Slider PlayerStamina;
     // Use this for initialization
     void Start () {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -51,8 +55,10 @@ public class pGunnerMove : MonoBehaviour {
             y = 0;
         }
 
+        PlayerHealth.value = health;
+        PlayerStamina.value = distanceTravelled;
 
-        
+
     }
 
     private void MyTurn()
