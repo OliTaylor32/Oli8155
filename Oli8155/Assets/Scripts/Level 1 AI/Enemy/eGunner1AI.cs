@@ -31,7 +31,7 @@ public class eGunner1AI : MonoBehaviour {
     {
         health = health - (power/2); 
         print("eGunner Damaged");
-        if (health == 0)
+        if (health <= 0)
         {
             alive = false;
             animator = GetComponent<Animator>();

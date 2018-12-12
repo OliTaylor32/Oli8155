@@ -31,7 +31,7 @@ public class eSoldier4AI : MonoBehaviour {
     {
         health = health - (power/2); 
         print("eGunner Damaged");
-        if (health == 0)
+        if (health <= 0)
         {
             alive = false;
             animator = GetComponent<Animator>();
@@ -46,7 +46,7 @@ public class eSoldier4AI : MonoBehaviour {
 
     private IEnumerator MyTurn()
     {
-        yield return new WaitForSecondsRealtime(10);
+        yield return new WaitForSecondsRealtime(2);
         if (alive == true)
         
         {
@@ -79,7 +79,7 @@ public class eSoldier4AI : MonoBehaviour {
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         vp.Stop();
-        GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("TurnMaster").SendMessage("ESoldier4Done", SendMessageOptions.DontRequireReceiver);
     }
 
 }

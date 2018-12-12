@@ -29,7 +29,7 @@ public class eSoilder2AI : MonoBehaviour {
     {
         health = health - (power/2); 
         print("eSoilder2 Damaged");
-        if (health == 0)
+        if (health <= 0)
         {
             print("Health = 0");
             alive = false;
