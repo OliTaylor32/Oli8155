@@ -128,10 +128,6 @@ public class TurnMaster1b : MonoBehaviour {
 
                 break;
 
-                case "eSoilder2":
-                    power = 2;
-                    GameObject.Find("pGunner").SendMessage("DamageTaken", power, SendMessageOptions.DontRequireReceiver);
-                    break;
             }
             canAttack = false;
         }

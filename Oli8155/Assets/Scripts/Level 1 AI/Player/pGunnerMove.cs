@@ -14,6 +14,8 @@ public class pGunnerMove : MonoBehaviour {
     private bool canMove = false;
     private bool selected = false;
     public bool alive = true;
+    public int health = 10;
+    public bool sandBag = false;
     // Use this for initialization
     void Start () {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -72,5 +74,15 @@ public class pGunnerMove : MonoBehaviour {
              GameObject.Find("TurnMaster").SendMessage("PGunnerDone", SendMessageOptions.DontRequireReceiver);
         }
        
+    }
+
+    public int DamageTaken(int power)
+    {
+        if (sandBag == false)
+            health = health - power;
+        else
+            health = health - (power / 2);
+
+        return health;
     }
 }

@@ -54,9 +54,6 @@ public class eGunner1AI : MonoBehaviour {
             if (Vector3.Distance(target.transform.position, this.transform.position) <= 4)
             {
                 print("eGunner1 Attacks pGunner1 ");
-                defence = "pGunner";
-                GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
-                defence = "eGunner1";
                 var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
                 videoPlayer.Play();
                 videoPlayer.loopPointReached += EndReached;
@@ -77,6 +74,7 @@ public class eGunner1AI : MonoBehaviour {
 
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
+        GameObject.Find("pGunner").SendMessage("DamageTaken", 4, SendMessageOptions.DontRequireReceiver);
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("EGunner1Done", SendMessageOptions.DontRequireReceiver);
     }

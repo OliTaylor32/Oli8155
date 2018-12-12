@@ -52,9 +52,6 @@ public class eSoilder2AI : MonoBehaviour {
         if (alive == true)
         {
             print("eSoilder2 Attacks pGunner");
-            defence = "pGunner";
-            GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
-            defence = "eSoilder2";
             var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
             videoPlayer.Play();
             videoPlayer.loopPointReached += EndReached;
@@ -69,6 +66,7 @@ public class eSoilder2AI : MonoBehaviour {
 
     private void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
+        GameObject.Find("pGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
     }

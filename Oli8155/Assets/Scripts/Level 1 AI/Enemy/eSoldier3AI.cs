@@ -6,6 +6,7 @@ public class eSoldier3AI : MonoBehaviour {
     private static string defence = "eSoldier3";
     private bool alive = true;
     public int health = 2;
+    private int turn = 1;
     protected Animator animator;
     // Use this for initialization
     void Start () {
@@ -44,35 +45,40 @@ public class eSoldier3AI : MonoBehaviour {
     {
         if (alive == true)
         {
-            animator = GetComponent<Animator>();
-            yield return new WaitForSecondsRealtime(2);
-            animator.Play("eSoldier3");
-            //Attack animation
-            print("eSoldier3 Attacks pSoldier1");
-            yield return new WaitForSecondsRealtime(8);
-            GameObject.Find("pSoldier1").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
-            GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
+            if (turn == 1)
+            {
+                animator = GetComponent<Animator>();
+                yield return new WaitForSecondsRealtime(2);
+                animator.Play("eSoldier3");
+                //Attack animation
+                print("eSoldier3 Attacks pSoldier1");
+                yield return new WaitForSecondsRealtime(8);
+                GameObject.Find("pSoldier1").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+                GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
+            }
+            else
+            {
+                print("eSoldier3 attacks pGunner");
+                var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
+                videoPlayer.Play();
+                videoPlayer.loopPointReached += EndReached;
+            }
+            turn = turn + 1;
         }
         else
         {
+
             yield return new WaitForSecondsRealtime(1);
             GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
         }
-        //print("pSoldier1 Attacks eSoldier2");
-        //defence = "eSoldier2";
-        //GameObject.Find("TurnMaster").SendMessage("Battle", defence, SendMessageOptions.DontRequireReceiver);
-        //defence = "pSoldier1";
-        ////var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
-        ////videoPlayer.Play();
-        ////videoPlayer.loopPointReached += EndReached;
-
 
     }
 
-    //private void EndReached(UnityEngine.Video.VideoPlayer vp)
-    //{
-    //    vp.Stop();
-    //    GameObject.Find("TurnMaster").SendMessage("PSoilder1Done", SendMessageOptions.DontRequireReceiver);
-    //}
+    private void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        GameObject.Find("pGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
+        vp.Stop();
+        GameObject.Find("TurnMaster").SendMessage("PSoilder1Done", SendMessageOptions.DontRequireReceiver);
+    }
 
 }
