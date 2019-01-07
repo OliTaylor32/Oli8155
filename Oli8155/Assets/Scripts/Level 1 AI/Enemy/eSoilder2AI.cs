@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class eSoilder2AI : MonoBehaviour {
     private static string defence = "eSoilder2";
     private bool alive = true;
     public int health = 4;
     protected Animator animator;
+    public Slider OtherHealth;
     // Use this for initialization
     void Start () {
         var videoPlayer = GetComponent<UnityEngine.Video.VideoPlayer>();
@@ -70,6 +72,17 @@ public class eSoilder2AI : MonoBehaviour {
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("ESoldier2Done", SendMessageOptions.DontRequireReceiver);
     }
-    
+
+    private void OnMouseOver()
+    {
+        OtherHealth.value = health;
+        OtherHealth.maxValue = 4;
+    }
+
+    private void OnMouseExit()
+    {
+        OtherHealth.value = 0;
+    }
+
 
 }

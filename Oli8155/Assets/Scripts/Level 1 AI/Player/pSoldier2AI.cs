@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pSoldier2AI : MonoBehaviour {
     private static string defence = "pSoilder2";
     private bool alive = true;
     public int health = 2;
     protected Animator animator;
-    public int turn = 1; 
+    public int turn = 1;
+    public Slider OtherHealth;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -74,5 +76,16 @@ public class pSoldier2AI : MonoBehaviour {
         }
 
 
+    }
+
+    private void OnMouseOver()
+    {
+        OtherHealth.value = health;
+        OtherHealth.maxValue = 2;
+    }
+
+    private void OnMouseExit()
+    {
+        OtherHealth.value = 0;
     }
 }

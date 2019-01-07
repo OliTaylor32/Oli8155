@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class eSoldier3AI : MonoBehaviour {
     private static string defence = "eSoldier3";
@@ -8,6 +9,7 @@ public class eSoldier3AI : MonoBehaviour {
     public int health = 2;
     private int turn = 1;
     protected Animator animator;
+    public Slider OtherHealth;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -79,6 +81,17 @@ public class eSoldier3AI : MonoBehaviour {
         GameObject.Find("pGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("PSoilder1Done", SendMessageOptions.DontRequireReceiver);
+    }
+
+    private void OnMouseOver()
+    {
+        OtherHealth.value = health;
+        OtherHealth.maxValue = 2;
+    }
+
+    private void OnMouseExit()
+    {
+        OtherHealth.value = 0;
     }
 
 }

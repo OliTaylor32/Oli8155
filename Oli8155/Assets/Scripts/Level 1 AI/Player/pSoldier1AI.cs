@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class pSoldier1AI : MonoBehaviour {
     private static string defence = "pSoilder1";
     private bool alive = true;
     public int health = 2;
     protected Animator animator;
+    public Slider OtherHealth;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -65,6 +67,16 @@ public class pSoldier1AI : MonoBehaviour {
     {
         vp.Stop();
         GameObject.Find("TurnMaster").SendMessage("PSoilder1Done", SendMessageOptions.DontRequireReceiver);
+    }
+
+    private void OnMouseOver()
+    {
+        OtherHealth.value = health;
+        OtherHealth.maxValue = 2;
+    }
+    private void OnMouseExit()
+    {
+        OtherHealth.value = 0;
     }
 
 }
