@@ -80,7 +80,7 @@ public class eSoldier3AI : MonoBehaviour {
     {
         GameObject.Find("pGunner").SendMessage("DamageTaken", 2, SendMessageOptions.DontRequireReceiver);
         vp.Stop();
-        GameObject.Find("TurnMaster").SendMessage("PSoilder1Done", SendMessageOptions.DontRequireReceiver);
+        GameObject.Find("TurnMaster").SendMessage("ESoldier3Done", SendMessageOptions.DontRequireReceiver);
     }
 
     private void OnMouseOver()
