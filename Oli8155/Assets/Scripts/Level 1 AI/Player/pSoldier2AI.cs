@@ -87,5 +87,6 @@ public class pSoldier2AI : MonoBehaviour {
     private void OnMouseExit()
     {
         OtherHealth.value = 0;
+         
     }
 }
