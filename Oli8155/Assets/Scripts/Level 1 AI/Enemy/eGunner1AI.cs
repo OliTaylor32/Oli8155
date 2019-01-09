@@ -31,17 +31,22 @@ public class eGunner1AI : MonoBehaviour {
 
     public bool DamageTaken(int power)
     {
-        health = health - (power/2); 
-        print("eGunner Damaged");
-        if (health <= 0)
+        if (alive == true)
         {
-            alive = false;
-            animator = GetComponent<Animator>();
-            animator.Play("Defeated");
-            foreach (Transform child in transform)
+            health = health - (power / 2);
+            print("eGunner Damaged");
+            if (health <= 0)
             {
-                GameObject.Destroy(child.gameObject);
+                alive = false;
+                animator = GetComponent<Animator>();
+                animator.Play("Defeated");
+                foreach (Transform child in transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+                GameObject.Find("Goal Collision").SendMessage("Defeated", SendMessageOptions.DontRequireReceiver);
             }
+            
         }
         return alive;
     }

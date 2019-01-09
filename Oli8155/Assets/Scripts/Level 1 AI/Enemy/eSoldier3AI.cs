@@ -40,6 +40,7 @@ public class eSoldier3AI : MonoBehaviour {
         {
             GameObject.Destroy(child.gameObject);
         }
+        GameObject.Find("Goal Collision").SendMessage("Defeated", SendMessageOptions.DontRequireReceiver);
         return alive;
     }
 
