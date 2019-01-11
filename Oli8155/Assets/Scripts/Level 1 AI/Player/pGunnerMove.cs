@@ -89,6 +89,10 @@ public class pGunnerMove : MonoBehaviour {
         else
             health = health - (power / 2);
 
+        if (health <= 0)
+        {
+            Application.LoadLevel("Stage1Failed");
+        }
         return health;
     }
 }
