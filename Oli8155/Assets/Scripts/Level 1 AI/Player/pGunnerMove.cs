@@ -8,7 +8,7 @@ public class pGunnerMove : MonoBehaviour {
 
     public float speed = 5.0f;
     public float stamina = 10.0f;
-    Rigidbody2D  rigidbody2D;
+    Rigidbody2D rigidbody2D;
     public float distanceTravelled = 0;
     Vector3 startingPosition;
     private float x;
@@ -20,25 +20,26 @@ public class pGunnerMove : MonoBehaviour {
     public bool sandBag = false;
     public Slider PlayerHealth;
     public Slider PlayerStamina;
+    
     // Use this for initialization
-    void Start () {
+    void Start() {
         rigidbody2D = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
-}
-	
+    }
+
     private static void Movement(Rigidbody2D rigidbody2D, float x, float y, float speed)
     {
         rigidbody2D.velocity = new Vector2(x, y) * speed;
         rigidbody2D.angularVelocity = 0.0f;
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update() {
 
         distanceTravelled = Vector3.Distance(startingPosition, transform.position);
 
         if (distanceTravelled > stamina)
         {
-            canMove = false; 
+            canMove = false;
         }
 
         if (canMove == true)
@@ -75,11 +76,11 @@ public class pGunnerMove : MonoBehaviour {
     {
         if (selected == true)
         {
-             print("Player Passive End Turn");
-             selected = false;
-             GameObject.Find("TurnMaster").SendMessage("PGunnerDone", SendMessageOptions.DontRequireReceiver);
+            print("Player Passive End Turn");
+            selected = false;
+            GameObject.Find("TurnMaster").SendMessage("PGunnerDone", SendMessageOptions.DontRequireReceiver);
         }
-       
+
     }
 
     public int DamageTaken(int power)
@@ -95,4 +96,15 @@ public class pGunnerMove : MonoBehaviour {
         }
         return health;
     }
+
+    public void SandBagEnter()
+    {
+        sandBag = true;
+    }
+
+    public void SandBagExit()
+    {
+        sandBag = false;
+    }
+
 }
