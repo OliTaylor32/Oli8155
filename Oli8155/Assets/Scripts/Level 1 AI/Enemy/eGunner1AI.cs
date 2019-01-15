@@ -7,6 +7,7 @@ public class eGunner1AI : MonoBehaviour {
     private static string defence = "eGunner1";
     private bool alive = true;
     public int health = 4;
+    private bool battle = false;
     public GameObject target;
     protected Animator animator;
     public Slider OtherHealth;
@@ -33,6 +34,7 @@ public class eGunner1AI : MonoBehaviour {
     {
         if (alive == true)
         {
+            battle = true;
             health = health - (power / 2);
             print("eGunner Damaged");
             if (health <= 0)
@@ -48,6 +50,7 @@ public class eGunner1AI : MonoBehaviour {
             }
             
         }
+        battle = false;
         return alive;
     }
 
@@ -96,5 +99,6 @@ public class eGunner1AI : MonoBehaviour {
     {
         OtherHealth.value = 0;
     }
+    
 
 }

@@ -20,7 +20,8 @@ public class pGunnerMove : MonoBehaviour {
     public bool sandBag = false;
     public Slider PlayerHealth;
     public Slider PlayerStamina;
-    
+    public GameObject sandbagHUD;
+
     // Use this for initialization
     void Start() {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,6 +35,8 @@ public class pGunnerMove : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
+
+        sandbagHUD.SetActive(sandBag);
 
         distanceTravelled = Vector3.Distance(startingPosition, transform.position);
 
