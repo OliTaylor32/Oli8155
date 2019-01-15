@@ -78,6 +78,7 @@ public class pGunnerMove : MonoBehaviour {
         {
             print("Player Passive End Turn");
             selected = false;
+            canMove = false;
             GameObject.Find("TurnMaster").SendMessage("PGunnerDone", SendMessageOptions.DontRequireReceiver);
         }
 
@@ -105,6 +106,11 @@ public class pGunnerMove : MonoBehaviour {
     public void SandBagExit()
     {
         sandBag = false;
+    }
+
+    public void Attacking()
+    {
+        canMove = false;
     }
 
 }

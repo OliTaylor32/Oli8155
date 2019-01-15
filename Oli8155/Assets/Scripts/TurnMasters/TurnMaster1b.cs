@@ -92,6 +92,7 @@ public class TurnMaster1b : MonoBehaviour {
     {
         if (canAttack == true)
         {
+            GameObject.Find("pGunner").SendMessage("Attacking", SendMessageOptions.DontRequireReceiver);
             switch (attack)
             {
                  case "pGunner":
