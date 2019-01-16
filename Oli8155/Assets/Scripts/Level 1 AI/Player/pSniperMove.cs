@@ -63,14 +63,14 @@ public class pSniperMove : MonoBehaviour {
         }
     }
 
-    private void OnMouseDown()
-    {
-        if (selected == true)
-        {
-             print("Player Passive End Turn");
-             selected = false;
-             GameObject.Find("TurnMaster").SendMessage("PSniperDone", SendMessageOptions.DontRequireReceiver);
-        }
+    //private void OnMouseDown()
+    //{
+    //    if (selected == true)
+    //    {
+    //         print("Player Passive End Turn");
+    //         selected = false;
+    //         GameObject.Find("TurnMaster").SendMessage("PSniperDone", SendMessageOptions.DontRequireReceiver);
+    //    }
        
-    }
+    //}
 }
