@@ -11,7 +11,7 @@ public class GameFinish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey)
+        if (Input.GetMouseButtonDown(0))
         {
             Application.LoadLevel("TitleScreen");
         }

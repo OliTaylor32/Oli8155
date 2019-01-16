@@ -18,6 +18,11 @@ public class SmoothFollow2D : MonoBehaviour {
 	void Update () {
         Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
         transform.position = Vector3.Lerp(transform.position, newPos, (smoothing * 0.001f));
+        if (Input.GetKey("escape"))
+        {
+            Application.LoadLevel("Main Menu");
+        }
+
     }
 
     private void Follow(string newTarget)

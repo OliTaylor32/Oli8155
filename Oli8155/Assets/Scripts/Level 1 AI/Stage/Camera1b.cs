@@ -18,6 +18,10 @@ public class Camera1b : MonoBehaviour {
 	void Update () {
         Vector3 newPos = new Vector3(target.position.x, target.position.y, -10f);
         transform.position = Vector3.Lerp(transform.position, newPos, (smoothing * 0.001f));
+        if (Input.GetKey("escape"))
+        {
+            Application.LoadLevel("Stage1Failed");
+        }
     }
 
     private void Follow(string newTarget)
