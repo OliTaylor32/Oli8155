@@ -13,7 +13,7 @@ public class BackButton : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    //Grow in size when mouse is hovering over
     void OnMouseOver()
     {
         while (transform.localScale.x < 0.8)
@@ -22,7 +22,7 @@ public class BackButton : MonoBehaviour {
         }
             
     }
-
+    //When the mouse exits, 
     void OnMouseExit()
     {
         while (transform.localScale.x > 0.8)
@@ -30,7 +30,7 @@ public class BackButton : MonoBehaviour {
             transform.localScale += new Vector3(-0.1F, -0.1f, -0.1f);
         }
     }
-
+    //When Clicked, load the main menu
     private void OnMouseDown()
     {
         Application.LoadLevel("Main Menu");

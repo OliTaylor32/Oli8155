@@ -13,7 +13,7 @@ public class Exit : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    //When clicked, close the game.
     private void OnMouseDown()
     {
         Application.Quit();

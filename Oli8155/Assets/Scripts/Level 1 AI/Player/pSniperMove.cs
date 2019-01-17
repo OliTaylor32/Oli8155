@@ -16,18 +16,20 @@ public class pSniperMove : MonoBehaviour {
     public bool alive = true;
     // Use this for initialization
     void Start () {
+        //Retrieve and store the players starting position
         rigidbody2D = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
 }
 	
     private static void Movement(Rigidbody2D rigidbody2D, float x, float y, float speed)
     {
+        //Move the character.
         rigidbody2D.velocity = new Vector2(x, y) * speed;
         rigidbody2D.angularVelocity = 0.0f;
     }
 	// Update is called once per frame
 	void Update () {
-
+        
         distanceTravelled = Vector3.Distance(startingPosition, transform.position);
 
         if (distanceTravelled > stamina)
